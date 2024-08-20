@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.register-form {
+    width: 30%;
+    margin: 2% auto;
+}
+
+.login-form {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(51, 51, 51);
+
+
+}
+
+.login-form form {
+    background-color: white;
+    width: 30vw;
+    padding: 2em;
+    border-radius: 10px;
+}
+
+.login-form input {
+    margin: .3em 0 1em 0;
+}

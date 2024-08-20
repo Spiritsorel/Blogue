@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ publication.title }}</title>
+</head>
+<body>
+    
+    <h1> {{ publication.title }} </h1>
+    <p> {{ publication.content }} </p>
+    <br>
+    <br>
+    <h2>Commentaires :</h2>
+    <ul>
+        {% for commentaire in commentaires %}
+            <li>
+                <strong> {{ commentaire.auteur.username }} :  </strong> {{ commentaire.content }} <br>
+                <small>{{ commentaire.created_date }}</small>
+            </li>
+        {% empty %}
+            <li>Pas encore de commentaires.</li>
+        {% endfor %}
+    </ul>
+
+    {% if user.is_authenticated %}
+        <h2>Ajouter un commentaire</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Envoyer</button>
+            <a href="{% url 'postList' %}" style="text-decoration: none; color: black;">Retour a la liste</a>
+        </form>
+    {% else %}
+        <p>Vous devez etre connecte pour ajouter un commentaire.</p>
+    {% endif %}
+    
+
+</body>
+</html>
