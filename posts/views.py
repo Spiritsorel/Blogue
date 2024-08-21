@@ -48,3 +48,12 @@ def updatePost(request, pk):
             return redirect('postList')
     context = {'update_form':form}
     return render(request, 'posts/update.html', context)
+
+def search(request):
+    if request.method == 'POST':
+        q = request.POST.get('q')
+        posts = Post.objects.filter(title__icontains=q)
+        context = {'posts':posts}
+        return render(request, 'posts/post_list.html', context)
+
+    return render(request, 'posts/post_list.html')

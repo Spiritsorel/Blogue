@@ -8,6 +8,13 @@
     <h3>Posts list</h3>
     <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal">Add new post</button>
 </div>
+<div class="m-3" id="searh">
+    <form action="{% url 'search' %}" method="post" class="d-flex">
+        {% csrf_token %}
+        <input type="text" name="q" placeholder="searh here..." class="form-control">
+        <button type="submit" class="btn btn-dark">Searh</button>
+    </form>
+</div>
 <table class="table">
     <thead class="bg-dark text-light">
         <tr>
